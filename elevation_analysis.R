@@ -115,8 +115,6 @@ dev.off()
 # elevation analysis
 ######################
 
-library(scales)
-
 correlation <- cor(geodf$elevation,geodf$elevation.gmaps) #provides the correlation coefficient between measured and gmaps elevation
 variance <- var(geodf$elevation,geodf$elevation.gmaps) #provides the correlation coefficient between measured and gmaps elevation
 

@@ -1,37 +1,9 @@
-parse xml gpx
-http://www.r-bloggers.com/stay-on-track-plotting-gps-tracks-with-r/
-http://stackoverflow.com/questions/17198658/how-to-parse-xml-to-r-data-frame
+* Elevation Analysis of GPS workout tracks (gpx)
+** Intro
+Using a Garmin device and Strava, I noticed there are sometimes huge differences in elevation gain. I wrote this script be able to compare recorded tracks (gpx files) with google maps elevation data, which is used as a reference for every gpx source file. 
 
-Read multiple gpx files
-http://stackoverflow.com/questions/6397523/read-multiple-gpx-files
-
-Work with multiple objects in for loop
-http://stackoverflow.com/questions/19255289/for-loop-object-names-iterate
-
-List all objects with pattern
-http://stackoverflow.com/questions/4876813/using-r-to-list-all-files-with-a-specified-extension
-
-Mapping
-http://www.visualcinnamon.com/2014/03/running-paths-in-amsterdam-step-2.html
-http://www.r-bloggers.com/stay-on-track-plotting-gps-tracks-with-r/
-http://www.r-bloggers.com/mapping-gps-tracks-in-r/
-
-Elevation DEM
-http://stackoverflow.com/questions/21593868/extracting-elevation-from-website-for-lat-lon-points-in-australia-using-r
-http://www.inside-r.org/packages/cran/rgbif/docs/elevation
-http://stackoverflow.com/questions/21593868/extracting-elevation-from-website-for-lat-lon-points-in-australia-using-r
-
-Combine list of objects into one data.frame
-http://stackoverflow.com/questions/15673550/why-is-rbindlist-better-than-rbind
-http://stackoverflow.com/questions/18124983/how-to-rbind-matrices-based-on-objects-names
-
-Plot
-http://stackoverflow.com/questions/3777174/plotting-two-variables-as-lines-using-ggplot2-on-the-same-graph
-
-Multifunction in sapply()
-http://www.r-bloggers.com/applying-multiple-functions-to-data-frame/
-
-
-
-
-
+** Analysis
+The script prompts for a file, which you can choose locally and load into the R environment. This file needs to be in the gpx format with the ending '*.gpx'. 
+The script then parsed the xml structured file for elevation data and coordinates. It will produce and export a map with the track as PNG file, as well as the elevation profile with the google maps elevation profile as a comparison.
+In order to get the google elevation data, R is using the Google API. In order to run this script successfully, you need a Google API developer account, or transform the script to split the data into smaller pieces (500 per batch), which you can query for free.
+Finally, the script will calculate total elevation gain for both, the GPS recorded data as well as the Google maps elevation data. 
